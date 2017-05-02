@@ -2,15 +2,16 @@ package nyc.c4q.eddie;
 
 public class Game {
 
-    int numOfPlayers;
+//    int numOfPlayers;
+    boolean isMultiPlayer;
 
-    public Game(int numOfPlayers) {
+    public Game(boolean multiPlayer) {
 
-        this.numOfPlayers = numOfPlayers;
+        this.isMultiPlayer = multiPlayer;
 
     }
 
-    public int getNumOfPlayers() {
-        return numOfPlayers;
+    public boolean getMultiPlayer() {
+        return isMultiPlayer;
     }
 }
