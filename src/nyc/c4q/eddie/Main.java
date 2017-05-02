@@ -39,7 +39,7 @@ public class Main {
 //        PositionMap.boardPrint();
 //        System.out.println("AI=" + aiLetter);
 //        System.out.println("User=" + userLetter);
-//        WinOrLose.evaluate("X");
+//        WinChecker.evaluate("X");
 
 /**
  * The end of things not needed
@@ -62,9 +62,13 @@ public class Main {
 
         while (numOfPlayers != 1 || numOfPlayers != 2) {
 
-            if (numOfPlayers == 1 || numOfPlayers == 2) {
+            if (numOfPlayers == 1) {
                 sc.close();
-                Game gameType = new Game(numOfPlayers);
+                Game gameType = new Game(false);
+                break;
+            } else if (numOfPlayers == 2) {
+                sc.close();
+                Game gameType = new Game(true);
                 break;
             } else {
                 System.out.println("NOT A VALID OPTION");
