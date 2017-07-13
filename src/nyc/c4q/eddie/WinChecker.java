@@ -2,99 +2,39 @@ package nyc.c4q.eddie;
 
 public class WinChecker {
 
-    public static void evaluate(String input) {
+    public static boolean winCheck(char player) {
 
-        if (PositionMap.pValue.get("A1") == input && PositionMap.pValue.get("A2") == input
-                    && PositionMap.pValue.get("A3") == input) {
+        char[][] ttBoard = Board.getTtBoard();
 
-                if (input == LetterSetter.userLetter) {
-                    System.out.println("Congratulations You Won!");
-                } else {
-                    System.out.println("Sorry you lost!");
-                }
+        /* Row Win Check */
+        for (int i = 1; i < 4; i++) {
+
+            if (ttBoard[i][1] == player && ttBoard[i][2] == player && ttBoard[i][3] == player) {
+
+                return true;
             }
+        }
 
-            if (PositionMap.pValue.get("B1") == input && PositionMap.pValue.get("B2") == input
-                    && PositionMap.pValue.get("B3") == input) {
+        /* Column Win Check */
+        for (int i = 1; i < 4; i++) {
 
-                if (input == LetterSetter.userLetter) {
-                    System.out.println("Congratulations You Won!");
-                } else {
-                    System.out.println("Sorry you lost!");
-                }
+            if (ttBoard[1][i] == player && ttBoard[2][i] == player && ttBoard[3][i] == player) {
+
+                return true;
             }
+        }
 
-            if (PositionMap.pValue.get("C1") == input && PositionMap.pValue.get("C2") == input
-                    && PositionMap.pValue.get("C3") == input) {
+        /* Diagonal down right win check */
+        if (ttBoard[1][1] == player && ttBoard[2][2] == player && ttBoard[3][3] == player) {
+            return true;
+        }
 
-                if (input == LetterSetter.userLetter) {
-                    System.out.println("Congratulations You Won!");
-                } else {
-                    System.out.println("Sorry you lost!");
-                }
-            }
+        /* Diagnal down left win check */
+        if (ttBoard[1][3] == player && ttBoard[2][2] == player && ttBoard[3][1] == player) {
+            return true;
+        }
 
-            if (PositionMap.pValue.get("A1") == input && PositionMap.pValue.get("B1") == input
-                    && PositionMap.pValue.get("C1") == input) {
-
-                if (input == LetterSetter.userLetter) {
-                    System.out.println("Congratulations You Won!");
-                } else {
-                    System.out.println("Sorry you lost!");
-                }
-            }
-
-            if (PositionMap.pValue.get("A2") == input && PositionMap.pValue.get("B2") == input
-                    && PositionMap.pValue.get("C2") == input) {
-
-                if (input == LetterSetter.userLetter) {
-                    System.out.println("Congratulations You Won!");
-                } else {
-                    System.out.println("Sorry you lost!");
-                }
-            }
-
-            if (PositionMap.pValue.get("A3") == input && PositionMap.pValue.get("B3") == input
-                    && PositionMap.pValue.get("C3") == input) {
-
-                if (input == LetterSetter.userLetter) {
-                    System.out.println("Congratulations You Won!");
-                } else {
-                    System.out.println("Sorry you lost!");
-                }
-            }
-
-            if (PositionMap.pValue.get("A1") == input && PositionMap.pValue.get("B2") == input
-                    && PositionMap.pValue.get("C3") == input) {
-
-                if (input == LetterSetter.userLetter) {
-                    System.out.println("Congratulations You Won!");
-                } else {
-                    System.out.println("Sorry you lost!");
-                }
-            }
-
-            if (PositionMap.pValue.get("A3") == input && PositionMap.pValue.get("B2") == input
-                    && PositionMap.pValue.get("C1") == input) {
-
-                if (input == LetterSetter.userLetter) {
-                    System.out.println("Congratulations You Won!");
-                } else {
-                    System.out.println("Sorry you lost!");
-                }
-            }
-
+        return false;
     }
-
-    /*
-    if input = A1, A2, A3
-    if input = B1, B2, B3
-    if input = C1, C2, C3
-    if input = A1, B1, C1
-    if input = A2, B2, C2
-    if input = A3, B3, C3
-    if input = A1, B2, C3
-    if input = C1, B2, A3
-     */
 
 }
